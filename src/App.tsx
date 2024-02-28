@@ -1,12 +1,11 @@
-import { useQuery } from '@apollo/client';
-import { TestQuery, ITestQuery } from './Api/Test';
+import Router from './Router';
 
-function App() {
-  const { data, loading } = useQuery<ITestQuery>(TestQuery);
-
-  if (loading) return <p>Loading...</p>;
-
-  return <div>{data?.company.name}</div>;
-}
+const App = () => {
+  return (
+    <>
+      <Router />
+    </>
+  );
+};
 
 export default App;
