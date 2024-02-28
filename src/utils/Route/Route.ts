@@ -4,10 +4,12 @@ export default class Route<
 > {
   public readonly path: string;
   public readonly route: string;
+  public readonly title?: string;
 
-  constructor(path: string) {
+  constructor(path: string, title?: string) {
     this.path = path.replace(/\*/g, '');
     this.route = path;
+    this.title = title;
   }
 
   get(params?: P, query?: Q): string {

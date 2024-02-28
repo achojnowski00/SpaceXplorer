@@ -18,8 +18,18 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"],
+      "CONSTANTS": ["src/CONSTANTS.ts"],
+      "ROUTES": ["src/ROUTES.ts"],
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "core/*": ["src/core/*"]
+    }
   },
-  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "src/core/types.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

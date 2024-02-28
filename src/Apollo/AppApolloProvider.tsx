@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-import { API_URL } from '../CONSTANTS';
+import { API_URL } from 'CONSTANTS';
 
 export const client = new ApolloClient({
   uri: API_URL,

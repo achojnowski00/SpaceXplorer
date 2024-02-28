@@ -6,6 +6,8 @@ import { AppApolloProvider } from './Apollo/AppApolloProvider.tsx';
 import App from './App.tsx';
 import initI18n from './i18n';
 
+import './global.scss';
+
 const init = async () => {
   await initI18n();
 
