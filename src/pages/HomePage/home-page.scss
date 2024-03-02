@@ -1,0 +1,48 @@
+.home-page {
+  height: 100svh;
+  overflow: hidden;
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.5) inset;
+  padding: 20px 10px;
+  position: relative;
+
+  &__title {
+    margin-top: 50px;
+    user-select: none;
+    font-family: 'SpaceX';
+    color: #ececec;
+    text-align: center;
+    font-size: 20px;
+    text-shadow: 4px 4px 10px rgba(28, 28, 28, 0.5);
+    transition: font-size 0.5s;
+
+    @media (min-width: 550px) {
+      font-size: 30px;
+    }
+
+    @media (min-width: 750px) {
+      font-size: 40px;
+    }
+
+    @media (min-width: $mobileScreenBreakPoint) {
+      font-size: 70px;
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: $mobileScreenBreakPoint) {
+    &__content {
+      position: absolute;
+      text-align: right;
+      top: 200px;
+      right: 50px;
+    }
+  }
+
+  &__routes-list {
+    text-align: center;
+    @media (min-width: $mobileScreenBreakPoint) {
+      text-align: right;
+      margin-right: 40px;
+    }
+  }
+}

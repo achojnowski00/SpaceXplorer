@@ -1,0 +1,38 @@
+.route-item {
+  $verticalPadding: 10px;
+
+  padding-top: $verticalPadding;
+  padding-bottom: $verticalPadding;
+
+  &__link {
+    text-decoration: none;
+    color: #ececec;
+    font-size: 30px;
+    font-family: SpaceX;
+    padding: $verticalPadding 20px;
+    position: relative;
+    user-select: none;
+    text-shadow: 4px 4px 10px rgba(28, 28, 28, 0.5);
+
+    &::after {
+      @include basicPseudoElement;
+      bottom: 0;
+      left: 100%;
+      right: 0;
+      height: 3px;
+      background: #ececec;
+
+      transition: 0.5s cubic-bezier(0, 0.7, 0.67, 1.2);
+    }
+
+    &:hover {
+      &::after {
+        left: 0;
+
+        @media (min-width: $mobileScreenBreakPoint) {
+          left: -20px;
+        }
+      }
+    }
+  }
+}

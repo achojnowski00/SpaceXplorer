@@ -9,9 +9,9 @@ export const I18_LANGUAGE_STORAGE_KEY = 'i18nextLng';
 export type ILangType = (typeof LANGS)[number];
 
 const langs = {
-  en: () => import('./en'),
-  pl: () => import('./pl'),
-  uk: () => import('./uk'),
+  en: () => import('../assets/langs/en'),
+  pl: () => import('../assets/langs/pl'),
+  uk: () => import('../assets/langs/uk'),
 };
 
 const inferLang = (input: string): ILangType => {

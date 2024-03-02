@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import ROUTES from './ROUTES';
+import ROUTES from 'ROUTES';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 
