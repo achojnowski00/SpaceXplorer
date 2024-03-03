@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { IRouteMapItem } from '../RoutesList/RoutesMap';
+import { IRouteMapItem } from 'utils/RoutesMap';
 import RouteItem from '.';
 
 const mockedRoute: IRouteMapItem = {

@@ -6,3 +6,19 @@ vitest.mock('react-i18next', () => ({
     t: (key: string): string => key,
   }),
 }));
+
+class ResizeObserverMock {
+  cb: ResizeObserverCallback;
+
+  constructor(cb: ResizeObserverCallback) {
+    this.cb = cb;
+  }
+
+  observe() {
+    this.cb([], this);
+  }
+  unobserve() {}
+  disconnect() {}
+}
+
+global.ResizeObserver = ResizeObserverMock;

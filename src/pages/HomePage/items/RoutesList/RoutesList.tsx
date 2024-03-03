@@ -3,15 +3,29 @@ import clsx from 'clsx';
 
 import RouteItem from '../RouteItem';
 
-import { IRouteMapItem } from './RoutesMap';
+import { IRouteMapItem } from 'utils/RoutesMap';
+import { IAnimatedListVariants } from '../RouteItem/RouteItem';
 
 import './routes-list.scss';
 
-const RoutesList: FC<IProps> = ({ className, routes }) => {
+const RoutesList: FC<IProps> = ({
+  className,
+  routes,
+  itemsClassName,
+  onItemClick,
+  customRouteItemAnimationVariants,
+}) => {
   return (
     <div className={clsx('routes-list', className)}>
       {routes.map((el, idx) => (
-        <RouteItem key={el.route.path} route={el} customDelay={idx} />
+        <RouteItem
+          customAnimationVariants={customRouteItemAnimationVariants}
+          onClick={onItemClick}
+          key={el.route.path}
+          className={itemsClassName}
+          route={el}
+          customDelay={idx}
+        />
       ))}
     </div>
   );
@@ -19,6 +33,9 @@ const RoutesList: FC<IProps> = ({ className, routes }) => {
 
 type IProps = IComponent & {
   routes: IRouteMapItem[];
+  itemsClassName?: string;
+  customRouteItemAnimationVariants?: IAnimatedListVariants;
+  onItemClick?: VoidFunction;
 };
 
 export default RoutesList;

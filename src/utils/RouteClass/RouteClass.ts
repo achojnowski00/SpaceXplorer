@@ -1,4 +1,4 @@
-export default class Route<
+export default class RouteClass<
   P extends Record<string, string> | undefined = undefined,
   Q extends Record<string, string> | undefined = undefined,
 > {

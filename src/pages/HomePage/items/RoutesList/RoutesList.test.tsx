@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import RoutesList from '.';
-import { IRouteMapItem } from './RoutesMap';
+import { IRouteMapItem } from 'utils/RoutesMap';
 
 describe('RoutesList', () => {
   it('should render all routes items', () => {
