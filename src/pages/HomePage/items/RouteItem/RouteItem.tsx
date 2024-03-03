@@ -5,11 +5,11 @@ import { Variant, motion } from 'framer-motion';
 
 import useDynamicTranslation from 'src/hooks/useDynamicTranslation';
 
-import { IRouteMapItem } from '../RoutesList/RoutesMap';
+import { IRouteMapItem } from 'utils/RoutesMap';
 
 import './route-item.scss';
 
-type IAnimatedListVariants = {
+export type IAnimatedListVariants = {
   initial: Variant;
   target: Variant;
 };
@@ -33,16 +33,23 @@ const variants: IAnimatedListVariants = {
   }),
 };
 
-const RouteItem: FC<IRouteItemProps> = ({ className, route, customDelay = 0 }) => {
+const RouteItem: FC<IRouteItemProps> = ({
+  className,
+  route,
+  customDelay = 0,
+  onClick,
+  customAnimationVariants,
+}) => {
   const test = useDynamicTranslation(route.text, route.textType);
 
   return (
     <motion.div
       custom={customDelay}
-      variants={variants}
+      variants={customAnimationVariants || variants}
       initial="initial"
       animate="target"
       className="route-item"
+      onClick={onClick}
     >
       <Link className={clsx('route-item__link', className)} to={route.route.get()}>
         {test}
@@ -59,6 +66,8 @@ export type IRouteItemProps = IComponent & {
    * @defaultValue `0`
    */
   customDelay?: number;
+  customAnimationVariants?: IAnimatedListVariants;
+  onClick?: VoidFunction;
 };
 
 export default RouteItem;

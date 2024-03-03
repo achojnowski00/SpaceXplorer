@@ -1,9 +1,9 @@
 import ROUTES from 'ROUTES';
 
-import Route from 'src/utils/Route';
+import RouteClass from 'src/utils/RouteClass';
 
 export type IRouteMapItem = {
-  route: Route;
+  route: RouteClass;
   text: string;
   /**
    * Wether {@link text} will be translated or not

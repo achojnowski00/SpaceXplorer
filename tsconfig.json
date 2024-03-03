@@ -27,7 +27,9 @@
       "ROUTES": ["src/ROUTES.ts"],
       "assets/*": ["src/assets/*"],
       "components/*": ["src/components/*"],
-      "core/*": ["src/core/*"]
+      "core/*": ["src/core/*"],
+      "hooks/*": ["src/hooks/*"],
+      "utils/*": ["src/utils/*"]
     }
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "src/core/types.d.ts"],

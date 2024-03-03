@@ -1,10 +1,25 @@
-import Route from './utils/Route';
+import RouteClass from './utils/RouteClass';
 import { APP_NAME } from 'CONSTANTS';
 
-export default {
-  home: new Route('/', APP_NAME),
-  aboutSpaceX: new Route('/about'),
-  missions: new Route('/missions'),
-  favoriteMissions: new Route('/favorite-missions'),
-  missionDetails: new Route<{ missionId: string }>('/mission-details/:missionId'),
+export default <
+  Record<
+    IAppRoutes,
+    RouteClass<Record<string, string> | undefined, Record<string, string> | undefined>
+  >
+>{
+  home: new RouteClass('/', APP_NAME),
+  aboutSpaceX: new RouteClass('/about'),
+  missions: new RouteClass('/missions'),
+  favoriteMissions: new RouteClass('/favorite-missions'),
+  missionDetails: new RouteClass<{ missionId: string }>('/mission-details/:missionId'),
 };
+
+export const AppRoutes = {
+  home: 'home',
+  aboutSpaceX: 'aboutSpaceX',
+  missions: 'missions',
+  favoriteMissions: 'favoriteMissions',
+  missionDetails: 'missionDetails',
+} as const;
+
+export type IAppRoutes = keyof typeof AppRoutes;

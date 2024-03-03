@@ -1,4 +1,4 @@
-import Route from './Route';
+import RouteClass from './RouteClass';
 
 type IParamsMock = {
   id: string;
@@ -16,7 +16,7 @@ describe('Route class', () => {
   const idMock = 'idMock';
   const orderMock: IOrderType = 'ASC';
   const searchMock = 'searchInputValueMock';
-  const testRoute = new Route<IParamsMock, IQueryMock>(`/${mockedSiteName}/:id`);
+  const testRoute = new RouteClass<IParamsMock, IQueryMock>(`/${mockedSiteName}/:id`);
 
   it('should create route and return correct url with params and query values', () => {
     const expectedResult = `/${mockedSiteName}/${idMock}?order=${orderMock}&search=${searchMock}`;

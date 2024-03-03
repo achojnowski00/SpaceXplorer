@@ -1,15 +1,22 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
+/// <reference types="vite-plugin-svgr/client" />
 
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import { configDefaults } from 'vitest/config';
+import svgr from 'vite-plugin-svgr';
 
 import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
-  plugins: [react()],
+  plugins: [
+    svgr({
+      include: ['**/*.svg?react', '**/*.svg'],
+    }),
+    react(),
+  ],
   css: {
     preprocessorOptions: {
       scss: {
@@ -48,6 +55,8 @@ export default defineConfig(() => ({
       assets: path.resolve('./src/', 'assets'),
       components: path.resolve('./src/', 'components'),
       core: path.resolve('./src/', 'core'),
+      hooks: path.resolve('./src/', 'hooks'),
+      utils: path.resolve('./src/', 'utils'),
     },
   },
 }));

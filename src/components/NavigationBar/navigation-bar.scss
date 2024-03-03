@@ -1,0 +1,28 @@
+.navigation-bar {
+  padding: 20px;
+  border-bottom: 1px solid #bbbbbb;
+
+  .navigation-bar__title {
+    color: #eeeeee;
+    transition: color 0.2s;
+    font-size: 20px;
+
+    &:hover {
+      color: #bbbbbb;
+    }
+  }
+
+  .navigation-bar__routes-list {
+    flex-direction: row;
+
+    .routes-list__item {
+      font-family: $fontFamily;
+
+      &:hover {
+        &::after {
+          left: 0;
+        }
+      }
+    }
+  }
+}

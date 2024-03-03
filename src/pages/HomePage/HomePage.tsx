@@ -6,7 +6,7 @@ import BackgroundImage from 'assets/images/background.png';
 
 import RoutesList from './items/RoutesList';
 
-import { RoutesMap } from './items/RoutesList/RoutesMap';
+import { RoutesMap } from 'utils/RoutesMap';
 import ROUTES from 'ROUTES';
 import { APP_NAME } from 'CONSTANTS';
 
