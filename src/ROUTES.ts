@@ -1,12 +1,7 @@
 import RouteClass from './utils/RouteClass';
 import { APP_NAME } from 'CONSTANTS';
 
-export default <
-  Record<
-    IAppRoutes,
-    RouteClass<Record<string, string> | undefined, Record<string, string> | undefined>
-  >
->{
+export default {
   home: new RouteClass('/', APP_NAME),
   aboutSpaceX: new RouteClass('/about'),
   missions: new RouteClass('/missions'),

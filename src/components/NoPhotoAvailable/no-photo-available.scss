@@ -1,0 +1,44 @@
+.no-photo-available {
+  position: relative;
+
+  &:hover {
+    .no-photo-available__background {
+      filter: grayscale(1) blur(4px);
+      transform: scale(1.05);
+    }
+  }
+
+  .no-photo-available__background {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    filter: grayscale(1) blur(1.5px);
+    transition:
+      0.3s filter,
+      0.3s transform;
+  }
+
+  .no-photo-available__content {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+
+    .no-photo-available__camera-icon {
+      width: 100px;
+      @media (min-width: $mobileScreenBreakPoint) {
+        width: 150px;
+      }
+    }
+
+    .no-photo-available__info {
+      font-weight: 500;
+      background: #111111;
+      color: #cccccc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      @media (min-width: $mobileScreenBreakPoint) {
+        font-size: 24px;
+      }
+    }
+  }
+}

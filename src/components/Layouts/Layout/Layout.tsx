@@ -17,7 +17,7 @@ const Layout = () => {
         <NavigationBar />
       </Responsive>
 
-      <MaxWidthContentWrapper className="layout__content">
+      <MaxWidthContentWrapper maxWidth={1680} className="layout__content">
         <Outlet />
       </MaxWidthContentWrapper>
     </div>
