@@ -1,3 +1,4 @@
 {
-  "no_photo_available": "No photo available"
+  "no_photo_available": "No photo available",
+  "go_to_page_count": "Go to page {{ count }}"
 }

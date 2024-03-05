@@ -1,3 +1,4 @@
 {
-  "no_photo_available": "Фотографії немає"
+  "no_photo_available": "Фотографії немає",
+  "go_to_page_count": "Перейти на сторінку {{ count }}"
 }
