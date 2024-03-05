@@ -32,6 +32,6 @@
       "utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src", "**/*.ts", "**/*.tsx", "src/core/types.d.ts"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "src/core/types.d.ts", "src/core/IApolloGraphql.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

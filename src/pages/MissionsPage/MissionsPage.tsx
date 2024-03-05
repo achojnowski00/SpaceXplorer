@@ -1,9 +1,21 @@
 import { FC } from 'react';
 
-const MissionsPage: FC<IProps> = ({}) => {
-  return <div>MissionsPage</div>;
+import useApolloMissions from 'src/hooks/useApolloMissions/useApolloMissions';
+
+import MissionsPageRender from './MissionsPageRender';
+
+const MissionsPage: FC<IProps> = ({ className }) => {
+  const { data, isLoading } = useApolloMissions();
+
+  return (
+    <MissionsPageRender
+      isLoading={isLoading}
+      className={className}
+      missions={data?.launchesPast || []}
+    />
+  );
 };
 
-interface IProps {}
+type IProps = IComponent;
 
 export default MissionsPage;

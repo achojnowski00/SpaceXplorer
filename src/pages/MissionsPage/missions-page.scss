@@ -1,0 +1,13 @@
+.missions-page-render {
+  .missions-page-render__loader {
+    margin-top: 40px;
+  }
+
+  .missions-page-render__missions-list {
+    .missions-list__item {
+      @media (min-width: $mobileScreenBreakPoint) {
+        width: calc(50% - 15px / 2);
+      }
+    }
+  }
+}
