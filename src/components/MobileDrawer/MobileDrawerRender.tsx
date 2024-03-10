@@ -75,7 +75,7 @@ type IProps = IComponent & {
    *
    * @defaultValue {@link ROUTES.missions}
    */
-  appLogoRoute: RouteClass;
+  appLogoRoute: RouteClass<any, any>;
   onRouteItemClick: VoidFunction;
   setOpen: VoidFunction;
   setClose: VoidFunction;

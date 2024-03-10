@@ -3,7 +3,7 @@ import ROUTES from 'ROUTES';
 import RouteClass from 'src/utils/RouteClass';
 
 export type IRouteMapItem = {
-  route: RouteClass;
+  route: RouteClass<any, any>;
   text: string;
   /**
    * Wether {@link text} will be translated or not

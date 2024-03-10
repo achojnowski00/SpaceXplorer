@@ -1,32 +1,45 @@
 import React from 'react';
+import { SetURLSearchParams, useSearchParams } from 'react-router-dom';
 
-import { PAGINATION_ITEMS_PER_PAGE } from 'src/CONSTANTS';
+import parsePageIndexSearchParam from './utils/parsePageIndexSearchParam';
+
+import { PAGINATION_ITEMS_PER_PAGE, PAGINATION_PAGE_SEARCH_PARAM } from 'src/CONSTANTS';
+
+const setPageSearchParam = (setSearParams: SetURLSearchParams, page: number) => {
+  setSearParams({ [PAGINATION_PAGE_SEARCH_PARAM]: String(page) });
+};
 
 export default function usePagination({
-  limit = PAGINATION_ITEMS_PER_PAGE,
+  queryLimit = PAGINATION_ITEMS_PER_PAGE,
   itemsCount,
-}: IArgs = {}) {
-  const [{ queryOffset, queryLimit }, setState] = React.useState({
-    queryOffset: 0,
-    queryLimit: limit,
-  });
+}: IArgs = {}): IUsePagination {
+  const pageCount = itemsCount ? Math.ceil(itemsCount / queryLimit) : null;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const pageIndexSearchParam = React.useMemo(
+    () =>
+      parsePageIndexSearchParam({
+        pageIndexSearchParam: searchParams.get(PAGINATION_PAGE_SEARCH_PARAM),
+        pageCount,
+      }),
+    [pageCount, searchParams],
+  );
+  const pageIndexSearchParam_ = pageIndexSearchParam > 0 ? pageIndexSearchParam : 0;
+
+  const [pageIndex, setPageIndex] = React.useState<number>(pageIndexSearchParam_);
+
+  const currentPage = React.useMemo(() => pageIndex + 1, [pageIndex]);
+  const queryOffset = React.useMemo(() => pageIndex * queryLimit, [queryLimit, pageIndex]);
 
   const onNextPage = () => {
     if (!hasNextPage) return;
-
-    setState((prev) => ({
-      ...prev,
-      queryOffset: prev.queryOffset + limit,
-    }));
+    setPageIndex((prev) => prev + 1);
   };
 
   const onPrevPage = () => {
     if (!hasPrevPage) return;
-
-    setState((prev) => ({
-      ...prev,
-      queryOffset: prev.queryOffset - limit,
-    }));
+    setPageIndex((prev) => prev - 1);
   };
 
   /**
@@ -34,25 +47,24 @@ export default function usePagination({
    */
   const onJumpPage = (pageIndex: number) => {
     if (pageCount && pageIndex + 1 > pageCount) return;
-
-    setState((prev) => ({
-      ...prev,
-      queryOffset: limit * pageIndex,
-    }));
+    setPageIndex(pageIndex);
   };
 
   const hasNextPage = React.useMemo(() => {
     if (!itemsCount) return true;
-
     return queryLimit + queryOffset < itemsCount;
   }, [itemsCount, queryLimit, queryOffset]);
 
   const hasPrevPage = React.useMemo(() => {
-    return queryOffset !== 0;
-  }, [queryOffset]);
+    return pageIndex !== 0;
+  }, [pageIndex]);
 
-  const pageCount = itemsCount ? Math.ceil(itemsCount / limit) : null;
-  const currentPage = React.useMemo(() => queryOffset / limit + 1, [limit, queryOffset]);
+  React.useEffect(() => {
+    setPageSearchParam(
+      setSearchParams,
+      pageCount && currentPage > pageCount ? pageCount : currentPage,
+    );
+  }, [currentPage, setSearchParams, pageIndex, pageCount]);
 
   return {
     queryLimit,
@@ -73,7 +85,7 @@ type IArgs = {
    *
    * @defaultValue {@link PAGINATION_ITEMS_PER_PAGE}
    */
-  limit?: number;
+  queryLimit?: number;
   /**
    * How much items do database contains. When no value is passed, there wont overflow check.
    *
@@ -82,4 +94,18 @@ type IArgs = {
    *
    */
   itemsCount?: number;
+};
+
+export type IUsePaginationOnJumpHandler = (pageIndex: number) => void;
+
+export type IUsePagination = {
+  queryLimit: number;
+  queryOffset: number;
+  onNextPage: VoidFunction;
+  onPrevPage: VoidFunction;
+  onJumpPage: IUsePaginationOnJumpHandler;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+  pageCount: number | null;
+  currentPage: number;
 };

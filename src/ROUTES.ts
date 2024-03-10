@@ -4,7 +4,7 @@ import { APP_NAME } from 'CONSTANTS';
 export default {
   home: new RouteClass('/', APP_NAME),
   aboutSpaceX: new RouteClass('/about'),
-  missions: new RouteClass('/missions'),
+  missions: new RouteClass<undefined, { page: string }>('/missions'),
   favoriteMissions: new RouteClass('/favorite-missions'),
   missionDetails: new RouteClass<{ missionId: string }>('/mission-details/:missionId'),
 };
