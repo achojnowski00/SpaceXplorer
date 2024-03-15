@@ -12,7 +12,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname || ''}>
       <Routes>
         <Route path={ROUTES.home.path} Component={HomePage} />
 
