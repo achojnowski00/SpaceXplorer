@@ -1,0 +1,1 @@
+const o="No photo available",t="Go to page {{ count }}",c={no_photo_available:o,go_to_page_count:t},s="Home page",a="Expeditions",n="Your favorite",i="SpaceX",e={home:s,missions:a,favorite_missions:n,about_space_x:i},_="Click and go to details",l={click_and_go_to_details:_};export{c as common,l as mission,e as routes};

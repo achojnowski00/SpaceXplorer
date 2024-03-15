@@ -1,0 +1,1 @@
+const o="Brak dostępnego zdjęcia",s="Idź do strony {{ count }}",i={no_photo_available:o,go_to_page_count:s},t="Strona główna",n="Ekspedycje",c="Ulubione",_="SpaceX",e={home:t,missions:n,favorite_missions:c,about_space_x:_},a="Kliknij i przejdź do szczegółów",d={click_and_go_to_details:a};export{i as common,d as mission,e as routes};

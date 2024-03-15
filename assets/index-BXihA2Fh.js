@@ -1,0 +1,1 @@
+const o="Фотографії немає",s="Перейти на сторінку {{ count }}",i={no_photo_available:o,go_to_page_count:s},t="Домашній",_="Місії",n="Улюблений",c="SpaceX",e={home:t,missions:_,favorite_missions:n,about_space_x:c},a="Клацніть та перейдіть до деталей",m={click_and_go_to_details:a};export{i as common,m as mission,e as routes};
