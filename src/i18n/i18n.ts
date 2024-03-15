@@ -3,15 +3,19 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 export const FALLBACK_LANG: ILangType = 'en';
-export const LANGS = ['pl', 'en', 'uk'] as const;
+export const LANGS = [
+  'en',
+  // 'pl',
+  // 'uk',
+] as const;
 export const I18_LANGUAGE_STORAGE_KEY = 'i18nextLng';
 
 export type ILangType = (typeof LANGS)[number];
 
 const langs = {
   en: () => import('assets/langs/en'),
-  pl: () => import('assets/langs/pl'),
-  uk: () => import('assets/langs/uk'),
+  // pl: () => import('assets/langs/pl'),
+  // uk: () => import('assets/langs/uk'),
 };
 
 const inferLang = (input: string): ILangType => {
