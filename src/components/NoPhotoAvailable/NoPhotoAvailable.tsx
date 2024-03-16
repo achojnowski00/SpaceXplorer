@@ -27,6 +27,8 @@ const NoPhotoAvailable: FC<IProps> = ({ className }) => {
   );
 };
 
-type IProps = IComponent;
+type IProps = IComponent & {
+  backgroundImageClassName?: string;
+};
 
 export default NoPhotoAvailable;

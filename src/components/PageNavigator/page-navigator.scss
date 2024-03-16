@@ -1,0 +1,18 @@
+.page-navigator {
+  .page-navigator__back-button {
+    padding-left: 10px;
+    padding-right: 20px;
+    cursor: pointer;
+
+    .back-button__chevron {
+      width: 30px;
+      height: 30px;
+    }
+
+    .back-button__label {
+      color: #cccccc;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}

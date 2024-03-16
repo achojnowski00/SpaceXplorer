@@ -1,13 +1,6 @@
 .no-photo-available {
   position: relative;
 
-  &:hover {
-    .no-photo-available__background {
-      filter: grayscale(1) blur(4px);
-      transform: scale(1.05);
-    }
-  }
-
   .no-photo-available__background {
     object-fit: cover;
     height: 100%;

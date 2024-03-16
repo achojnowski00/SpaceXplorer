@@ -1,3 +1,5 @@
 {
-  "click_and_go_to_details": "Kliknij i przejdź do szczegółów"
+  "click_and_go_to_details": "Kliknij i przejdź do szczegółów",
+  "mission_success": "udana",
+  "mission_failed": "misja nie powiodła się"
 }

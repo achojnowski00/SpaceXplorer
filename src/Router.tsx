@@ -12,7 +12,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 
 const Router = () => {
   return (
-    <BrowserRouter basename={window.location.pathname || ''}>
+    <BrowserRouter basename={'/SpaceXplorer/'}>
       <Routes>
         <Route path={ROUTES.home.path} Component={HomePage} />
 

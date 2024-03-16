@@ -16,10 +16,6 @@
       }
     }
 
-    .mission-tile__no-photo {
-      aspect-ratio: var(--photoAspectRatio);
-    }
-
     .mission-tile__image {
       object-fit: cover;
       height: 100%;

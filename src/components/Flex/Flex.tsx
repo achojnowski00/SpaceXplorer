@@ -41,11 +41,26 @@ const Flex: FC<IFlexProps> = ({
 
 export type IFlexProps = IComponent &
   InsHTMLAttributes<HTMLDivElement | HTMLLIElement> & {
+    /**
+     * @defaultValue `center`
+     */
     align?: 'start' | 'center' | 'end' | 'stretch';
+    /**
+     * @defaultValue `space-between`
+     */
     justify?: 'start' | 'center' | 'end' | 'space-between';
+    /**
+     * @defaultValue `row`
+     */
     direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
     width?: 'auto' | 'fill';
+    /**
+     * @defaultValue `nowrap`
+     */
     wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+    /**
+     * @defaultValue `div`
+     */
     Component?: 'div' | 'li';
     height?: 'max';
     children?: ReactNode;
