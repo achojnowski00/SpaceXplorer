@@ -24,8 +24,8 @@ const MissionDetailsPageRender: FC<IProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { t } = useTranslation('mission');
-  const { links, name, details, isSuccess, launchDate, ...rest2 } = missionData.launch;
-  const { images, video, ...rest } = links;
+  const { links, name, details, isSuccess, launchDate } = missionData.launch;
+  const { images, video } = links;
   const date = dayjs(launchDate).format('DD.MM.YYYY');
 
   const imageUrl = images.length > 0 ? images[selectedImageIndex] : null;
