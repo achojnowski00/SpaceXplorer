@@ -1,4 +1,5 @@
 {
   "no_photo_available": "Brak dostępnego zdjęcia",
-  "go_to_page_count": "Idź do strony {{ count }}"
+  "go_to_page_count": "Idź do strony {{ count }}",
+  "go_back": "wróć"
 }

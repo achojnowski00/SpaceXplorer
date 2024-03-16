@@ -25,8 +25,9 @@ const MissionTile: FC<IProps> = ({ className, mission }) => {
 
   const date = dayjs(launchDate).format('DD.MM.YYYY');
 
-  const randomImageIndex = Math.floor(Math.random() * links.images.length);
-  const imageUrl = links.images[randomImageIndex];
+  // const imageIndex = Math.floor(Math.random() * links.images.length);
+  const imageIndex = 0;
+  const imageUrl = links.images[imageIndex];
 
   return (
     <Link
@@ -40,7 +41,7 @@ const MissionTile: FC<IProps> = ({ className, mission }) => {
         {imageUrl ? (
           <img className="mission-tile__image" src={imageUrl} alt={mission.name} />
         ) : (
-          <NoPhotoAvailable className="mission-tile__no-photo" />
+          <NoPhotoAvailable className="mission-tile__image" />
         )}
       </div>
 

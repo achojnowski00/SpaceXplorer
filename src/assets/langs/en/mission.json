@@ -1,3 +1,5 @@
 {
-  "click_and_go_to_details": "Click and go to details"
+  "click_and_go_to_details": "Click and go to details",
+  "mission_success": "successful",
+  "mission_failed": "mission failed"
 }
